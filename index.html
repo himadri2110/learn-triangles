@@ -12,23 +12,70 @@
 
 <body>
 
-    <h1>Learn Triangles</h1>
+    <header>
+        <span class="header">Learn Triangles</span>
+        <span class="github"><a href="https://github.com/himadri2110/learn-triangles" target="_blank">GitHub Repo</a></span>
+    </header>
 
-    <div class="check-triangle">
-        <h2>Enter the angles(in degree) to check if they make a triangle</h2>
-
-        <input type="number" class="first">
-        <input type="number" class="second">
-        <input type="number" class="third">
-
-        <button onclick="checkTriangle()">Check</button>
-        
-        <div class="result">Result will be displayed here...</div>
-    </div>
-
+    <main>
+        <div class="check-triangle">
+            <h3>Enter the angles(in degree) to check if they make a triangle</h3>
     
-
+            <input type="number" class="first" placeholder="First angle">
+            <input type="number" class="second" placeholder="Second angle">
+            <input type="number" class="third" placeholder="Third angle">
     
+            <button onclick="checkTriangle()">Check</button>
+            
+            <div class="triangle-result">Result will be displayed here...</div>
+        </div>
+    
+        <div class="get-hypotenuse">
+            <h3>Enter the length of two legs of a right angled triangle and know its hypotenuse</h2>
+    
+            <input type="number" class="a" placeholder="Base">
+            <input type="number" class="b" placeholder="Height">
+            <br>
+            <button onclick="getHypotenuse()">Calculate</button>
+            
+            <div class="hypo-result">Result will be displayed here...</div>
+    
+        </div>
+    
+        <div class="guess-angle">
+            <h3>Generate two angles of a triangle and guess the third angle(in degree)</h3>
+    
+            <button onclick="generateAngle()">Generate angles</button> &emsp;
+            
+            <div>
+                First angle: <span class="first-angle">&emsp;</span> |
+                Second angle: <span class="second-angle">&emsp;</span>
+                &emsp;
+                <input type="number" class="third-angle"  placeholder="Guess third angle">
+            </div>
+            
+            <button onclick="guessAngle()">Check</button>
+    
+            <div class="angle-result">Result will be displayed here...</div>
+        </div>
+    
+        <div class="calc-area">
+            <h3>Get the area of a triangle from it's base and height</h3>
+    
+            <p>Enter base and height of the triangle(in units)</p>
+    
+            <input type="number" class="base" placeholder="Base">       
+            <input type="number" class="height" placeholder="Height">
+            <br>
+            <button onclick="calculateArea()">Calculate</button>
+            <div class="area">Result will be displayed here...</div>
+        </div>
+    
+    </main>
+
+    <footer>
+        <a href="himadrishah.tech" target="_blank">Himadri Shah</a>
+    </footer>
     <script src="./main.js"></script>
 </body>
 </html>
