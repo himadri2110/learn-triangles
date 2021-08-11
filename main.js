@@ -7,6 +7,7 @@ let a = document.querySelector('.a');
 let b = document.querySelector('.b');
 let hypoResultDiv = document.querySelector('.hypo-result');
 
+let generateAngleBtn = document.querySelector('.generate-angle');
 let firstAngleDiv = document.querySelector('.first-angle');
 let secondAngleDiv = document.querySelector('.second-angle');
 let thirdAngleInput = document.querySelector('.third-angle');
@@ -18,45 +19,44 @@ let areaDiv = document.querySelector('.area');
 
 let sum = 0, a_length, b_length, hypo_length = 0, correctAngle, thirdAngleGuess, area;
 
-function checkTriangle() {
+let formOne = document.querySelector('#one');
+let formTwo = document.querySelector('#two');
+let formThree = document.querySelector('#three');
+let formFour = document.querySelector('#four');
 
-    if(firstAngle.value == '' || secondAngle.value == '' || thirdAngle.value == '') {
-        triangleResultDiv.innerText = 'Please enter all the values';
-        triangleResultDiv.style.color = 'red';
+let formFive = document.querySelector('#five');
+let quizScore = document.querySelector('.quiz-score');
+let quizDiv = document.querySelectorAll('.quiz-wrapper');
+
+formOne.addEventListener('submit', function checkTriangle(e) {
+
+    e.preventDefault();
+
+    sum = Number(firstAngle.value) + Number(secondAngle.value) + Number(thirdAngle.value);
+
+    if(sum === 180) {
+        triangleResultDiv.innerText = 'Yay, it forms a triangle :)';
     } else {
-        sum = Number(firstAngle.value) + Number(secondAngle.value) + Number(thirdAngle.value);
-
-        triangleResultDiv.style.color = 'initial';
-        if(sum === 180) {
-            triangleResultDiv.innerText = 'Yay, it forms a triangle';
-        } else {
-            triangleResultDiv.innerText = 'OOPS, it does not form a triangle';
-        }
+        triangleResultDiv.innerText = 'OOPS, it does not form a triangle :(';
     }
-}
+});
 
-function getHypotenuse() {
+formTwo.addEventListener('submit', function getHypotenuse(e) {
+
+    e.preventDefault();
 
     a_length = a.value;
     b_length = b.value;
 
-    if(a_length == '' || b_length == '') {
-        hypoResultDiv.innerText = 'Please enter all the values';
-        hypoResultDiv.style.color = 'red';
-    } else {
-        hypoResultDiv.style.color = 'initial';
+    hypo_length = Math.sqrt((a_length * a_length) + (b_length * b_length));
+    hypoResultDiv.innerText =  `The length of the hypotenuse is ${hypo_length} units.`;
+});
 
-        hypo_length = Math.sqrt((a_length * a_length) + (b_length * b_length));
-        hypoResultDiv.innerText =  `The length of the hypotenuse is ${hypo_length}`;
-    }
-}
-
-function generateAngle() {
+generateAngleBtn.addEventListener('click', function generateAngle() {
 
     angle1 = Math.trunc(Math.random()*(180 - 0)) + 0;
     angle2 = Math.trunc(Math.random()*(180 - 0)) + 0;
 
-    console.log(angle1, angle2, '42');
     while(1) {
 
         if(angle1 + angle2 >= 180) {
@@ -65,44 +65,59 @@ function generateAngle() {
             } else {
                 angle2 = Math.trunc(Math.random()*(180 - 0)) + 0;
             }
-            console.log(angle1, angle2, '52');
         } else {
             break;
         }
     }
-
     firstAngleDiv.innerText = angle1;
     secondAngleDiv.innerText = angle2;
-}
+});
 
-function guessAngle() {
+formThree.addEventListener('submit', function guessAngle(e) {
 
-    if(thirdAngleInput.value == '' || firstAngleDiv.innerText == '' || secondAngleDiv.innerText == '') {
-        angleResultDiv.innerText = 'Please enter all the values';
-        angleResultDiv.style.color = 'red';
+    e.preventDefault();
+
+    thirdAngleGuess = Number(thirdAngleInput.value);
+    correctAngle = 180 - Number(firstAngleDiv.innerText) - Number(secondAngleDiv.innerText);
+
+    if(correctAngle === 180) {
+        angleResultDiv.innerText = 'Generate angles to proceed.';
     } else {
-        angleResultDiv.style.color = 'initial';
-
-        thirdAngleGuess = Number(thirdAngleInput.value);
-        correctAngle = 180 - Number(firstAngleDiv.innerText) - Number(secondAngleDiv.innerText);
-    
         if(thirdAngleGuess === correctAngle) {
-            angleResultDiv.innerText = 'Correct guess';
+            angleResultDiv.innerText = 'Correct guess :)';
         } else {
-            angleResultDiv.innerText = 'Incorrect guess';
-        }    
+            angleResultDiv.innerText = 'Incorrect guess :(';
+        }        
+    }    
+});
+
+formFour.addEventListener('submit', function calculateArea(e) {
+
+    e.preventDefault();
+
+    area = (base.value * height.value) * 0.5;
+    areaDiv.innerText = `The area of the triangle is ${area} units.`;
+});
+
+let correctAns = ['3', 'Obtuse', '20units', 'True', '0', 'Acute', 'Isosceles', '75°', 'Equiangular', 'No'];
+
+formFive.addEventListener('submit', function formQuiz(e) {
+
+    e.preventDefault();
+
+    let index = 0, score = 0;
+
+    let formResult = new FormData(formFive);
+    // console.log(...formResult);
+
+    for(let [, value] of formResult) {
+        if(value === correctAns[index]) {
+            score += 1;
+            quizDiv[index].style.border = '0.13rem solid rgb(36, 160, 36)';
+        } else {
+            quizDiv[index].style.border = '0.13rem solid red';
+        }
+        index += 1;
     }
-}
-
-function calculateArea() {
-
-    if(base.value == '' || height.value == '') {
-        areaDiv.innerText = 'Please enter all the values';
-        areaDiv.style.color = 'red';
-    } else {
-        areaDiv.style.color = 'initial';
-
-        area = (base.value * height.value) * 0.5;
-        areaDiv.innerText = `The area of the triangle is ${area} units`;
-    }
-}
+    quizScore.innerText = `Score: ${score}/10`;
+});

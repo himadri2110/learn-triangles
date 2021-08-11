@@ -2,7 +2,7 @@
 
 :root {
     --purple: rgb(199, 170, 253);
-    --light-purple: rgb(220, 202, 255);
+    --light-purple: rgb(224, 209, 255);
     --text: rgb(37, 37, 37);
 }
 
@@ -48,24 +48,42 @@ main {
     margin: 0 2rem 2rem;
 }
 
-.check-triangle, .get-hypotenuse, .guess-angle, .calc-area {
+.check-triangle, .get-hypotenuse, .guess-angle, .calc-area, .quiz {
     flex: 50%;
     padding: 1rem;
     border: 0.5rem solid var(--light-purple);
 }
 
-input, button {
+.quiz-wrapper {
+    background-color: var(--light-purple);
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 0.15rem;
+}
+
+.quiz-score {
+    margin: 1rem 0;
+}
+
+input[type="number"], button {
     width: 8rem;
-    font-size: 0.8rem;
-    padding: 0.25rem;
+    font-size: 0.85rem;
+    padding: 0.45rem;
     margin: 0.5rem 0;
     outline: none;
     border: none;
     border-radius: 0.15rem;
 }
 
+input[type="radio"] {
+    margin: 1rem 0.5rem;
+}
+
 button {
     cursor: pointer;
+    font-weight: bold;
+    background-color: var(--light-purple);
+    color: var(--text);
 }
 
 footer {
@@ -73,4 +91,10 @@ footer {
     margin-top: auto;
     height: 3rem;
     line-height: 3rem;
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 0 0.5rem 1rem;
+    }
 }

@@ -21,11 +21,16 @@
         <div class="check-triangle">
             <h3>Enter the angles(in degree) to check if they make a triangle</h3>
     
-            <input type="number" class="first" placeholder="First angle">
-            <input type="number" class="second" placeholder="Second angle">
-            <input type="number" class="third" placeholder="Third angle">
-    
-            <button onclick="checkTriangle()">Check</button>
+            <form id="one">
+                <input type="number" class="first" placeholder="First angle" 
+                required min=1 />
+                <input type="number" class="second" placeholder="Second angle" 
+                required min=1 />
+                <input type="number" class="third" placeholder="Third angle" 
+                required min=1 />
+        
+                <button type="submit">Check</button>    
+            </form>
             
             <div class="triangle-result">Result will be displayed here...</div>
         </div>
@@ -33,11 +38,13 @@
         <div class="get-hypotenuse">
             <h3>Enter the length of two legs of a right angled triangle and know its hypotenuse</h2>
     
-            <input type="number" class="a" placeholder="Base">
-            <input type="number" class="b" placeholder="Height">
-            <br>
-            <button onclick="getHypotenuse()">Calculate</button>
-            
+            <form id="two">
+                <input type="number" class="a" placeholder="Base" required min=1 />
+                <input type="number" class="b" placeholder="Height"required min=1 />
+                <br>
+                <button type="submit">Calculate</button>
+            </form>
+
             <div class="hypo-result">Result will be displayed here...</div>
     
         </div>
@@ -45,35 +52,183 @@
         <div class="guess-angle">
             <h3>Generate two angles of a triangle and guess the third angle(in degree)</h3>
     
-            <button onclick="generateAngle()">Generate angles</button> &emsp;
+            <button class="generate-angle">Generate angles</button> &emsp;
             
-            <div>
+            <form id="three">
                 First angle: <span class="first-angle">&emsp;</span> |
                 Second angle: <span class="second-angle">&emsp;</span>
                 &emsp;
-                <input type="number" class="third-angle"  placeholder="Guess third angle">
-            </div>
+                <input type="number" class="third-angle" placeholder="Guess third angle" required min=1 />
+
+                <button type="submit">Check</button>
+            </form>
             
-            <button onclick="guessAngle()">Check</button>
-    
             <div class="angle-result">Result will be displayed here...</div>
         </div>
     
         <div class="calc-area">
             <h3>Enter the base and height to know the area of a triangle</h3>
     
-            <input type="number" class="base" placeholder="Base">       
-            <input type="number" class="height" placeholder="Height">
-            <br>
-            <button onclick="calculateArea()">Calculate</button>
+            <form id="four">
+                <input type="number" class="base" placeholder="Base" required min=1 />       
+                <input type="number" class="height" placeholder="Height" required min=1 />
+                <br>
+                <button type="submit">Calculate</button>    
+            </form>
+
             <div class="area">Result will be displayed here...</div>
         </div>
-    
+
+        <div class="quiz">
+            <h3>Let's play a quiz!</h3>
+
+            <form id="five">
+
+                <div class="quiz-wrapper">
+                    <p>1. How many vertices does a triangle have?</p>
+
+                    <label>
+                        <input type="radio" name="q1" value="3" required />3
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="2" required />2
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="1" required />1
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>2. What is an angle of 95° known as? </p>
+
+                    <label>
+                        <input type="radio" name="q2" value="Acute" required />Acute
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="Right" required />Right
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="Obtuse" required />Obtuse
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>3. What is the area of a triangle having base = 4units and height = 10units? </p>
+
+                    <label>
+                        <input type="radio" name="q3" value="20units" required />20units
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="40units" required />40units
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="10units" required />10units
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>4. A triangle with no congruent sides is a scalene triangle. </p>
+
+                    <label>
+                        <input type="radio" name="q4" value="True" required />True
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="False" required />False
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>5. How many diagonals can be drawn in a triangle? </p>
+
+                    <label>
+                        <input type="radio" name="q5" value="2" required />2
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="1" required />1
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="0" required />0
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>6. The angle measures of a triangle are 85°, 38° and 57°. What kind of triangle is it? </p>
+
+                    <label>
+                        <input type="radio" name="q6" value="Acute" required />Acute
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="Obtuse" required />Obtuse
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="Right" required />Right
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>7. A triangle has two 45° interior angles. Which term correctly describes the triangle? </p>
+
+                    <label>
+                        <input type="radio" name="q7" value="Isosceles" required />Isosceles
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="Equilateral" required />Equilateral
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="Obtuse" required />Obtuse
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>8. Two angles of a triangle are 45° and 60°. Calculate the third angle. </p>
+
+                    <label>
+                        <input type="radio" name="q8" value="95°" required />95°
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="45°" required />45°
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="75°" required />75°
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>9. What do you call a triangle having all interior angles equal? </p>
+
+                    <label>
+                        <input type="radio" name="q9" value="Equilateral" required />Equilateral
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="Equiangular" required />Equiangular
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="Right angled" required />Right angled
+                    </label>
+                </div>
+
+                <div class="quiz-wrapper">
+                    <p>10. Does the angles 45°, 45° and 60° form a triangle? </p>
+
+                    <label>
+                        <input type="radio" name="q10" value="Yes" required />Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="No" required />No
+                    </label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <h4 class="quiz-score"></h4>
+        </div>
     </main>
 
     <footer>
         <a href="https://himadrishah.tech" target="_blank">Himadri Shah</a>
     </footer>
+
     <script src="./main.js"></script>
 </body>
 </html>
