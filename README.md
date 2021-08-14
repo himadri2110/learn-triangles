@@ -1,6 +1,6 @@
 # Learn Triangles
 
-A vanillaJS app to learn triangles
+[neoG mark12]
 
 <a href="https://marktwelve-triangles.netlify.app/"><img src="https://github.com/himadri2110/portfolio/blob/main/img/triangles.png" /></a>
 
