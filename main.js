@@ -69,6 +69,7 @@ generateAngleBtn.addEventListener('click', function generateAngle() {
             break;
         }
     }
+    thirdAngleInput.value = '';
     firstAngleDiv.innerText = angle1;
     secondAngleDiv.innerText = angle2;
 });
@@ -99,7 +100,7 @@ formFour.addEventListener('submit', function calculateArea(e) {
     areaDiv.innerText = `The area of the triangle is ${area} units.`;
 });
 
-let correctAns = ['3', 'Obtuse', '20units', 'True', '0', 'Acute', 'Isosceles', '75°', 'Equiangular', 'No'];
+let correctAns = ['3', 'Obtuse', '20units', 'True', '0', 'Acute', 'Isosceles', '75°', 'Equilateral', 'No'];
 
 formFive.addEventListener('submit', function formQuiz(e) {
 
