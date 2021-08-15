@@ -11,4 +11,5 @@
 - Generate two angles of a triangle and guess the third angle
 - Enter the base and height to calculate the area of the triangle
 - Test your knowledge of triangles by taking a quick quiz
+- Made using vanillaJS
 
